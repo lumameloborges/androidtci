@@ -6,7 +6,7 @@ import android.luma.tci.ws.Cliente;
 import android.luma.tci.ws.User;
 import android.luma.tci.ws.exception.ServicoException;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.Log; 
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
