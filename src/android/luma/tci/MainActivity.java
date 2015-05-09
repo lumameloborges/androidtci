@@ -2,13 +2,12 @@ package android.luma.tci;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.luma.tci.ws.Cliente;
-import android.luma.tci.ws.User;
-import android.luma.tci.ws.exception.ServicoException;
+import android.luma.tci.ws.ClienteGSON;
+import android.luma.tci.ws.Entidade;
 import android.os.Bundle;
 import android.util.Log; 
 import android.view.View;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -28,21 +27,17 @@ public class MainActivity extends Activity {
         startActivity(i);
     }
 
-    public void onClickLogar(View v) {
-        Log.i(MainActivity.class.getName(), "Chamou método");
-        try {
-            Cliente clientews = new Cliente();
-            TextView txtLogin = (TextView) findViewById(R.id.widget30);
-            User user = clientews.validaLogin(txtLogin.getText().toString(), "");
-            if (user.isLogado()) {
-                Toast.makeText(this, "Logou", Toast.LENGTH_LONG);
-            } else {
-                Toast.makeText(this, "Não logou", Toast.LENGTH_LONG);
-            }
+   public void onClickGetEntidadeParam(View view) {
+        EditText txtentidadeparam1 = (EditText) findViewById(R.id.widget28);
+        EditText txtentidadeparam2 = (EditText) findViewById(R.id.widget27);
 
-        } catch (ServicoException ex) {
-            Log.w(MainActivity.class.getName(), "Chamou método", ex);
-            Toast.makeText(this, "Erro: " + ex.getMessage(), Toast.LENGTH_LONG);
+        ClienteGSON cliente = new ClienteGSON();
+        try {
+            Entidade testeGet = cliente.testeGet(txtentidadeparam1.getText().toString(), txtentidadeparam2.getText().toString());
+            Log.w("Principal", testeGet.toString());
+            Toast.makeText(this, testeGet.toString(), Toast.LENGTH_SHORT).show();
+        } catch (Exception ex) {
+            Log.w("Principal", "Erro", ex);
         }
     }
 

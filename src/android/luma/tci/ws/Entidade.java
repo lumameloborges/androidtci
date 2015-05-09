@@ -7,9 +7,9 @@ package android.luma.tci.ws;
 
 /**
  *
- * @author User
+ * @author Entidade
  */
-public class User {
+public class Entidade {
     private boolean logado;
 
     public boolean isLogado() {
