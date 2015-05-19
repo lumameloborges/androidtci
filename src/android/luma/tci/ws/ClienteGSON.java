@@ -22,7 +22,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
  */
 public class ClienteGSON {
 
-   private static final String BASE_URI = "http://192.168.1.101:8080/TesteRestful/meuservico/testeservicogson";
+   private static final String BASE_URI = "http://10.20.5.14:8080/TCI-war/meuservico/testeservico";
 
      
     public Entidade testeGet(String param1,String param2) throws Exception {
