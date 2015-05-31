@@ -8,8 +8,8 @@ package android.luma.tci.dao;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.luma.tci.bean.Usuario;
 import android.luma.tci.util.ConexaoBancoSQLite;
+import android.luma.tci.ws.Post;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,15 +17,10 @@ import java.util.List;
  *
  * @author User
  */
-public class UsuarioDAO {
-
+public class PostoDAO {
     private Context context;
 
-    public UsuarioDAO(Context context) {
+ public PostoDAO(Context context) {
         this.context = context;
     }
-
-//   public List<Usuario> ListaTodos(){
-//       
-//   } 
 }

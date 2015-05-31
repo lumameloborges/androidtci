@@ -7,8 +7,11 @@ package android.luma.tci;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.luma.tci.bean.Usuario;
+import android.luma.tci.ws.Entidade;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 /**
@@ -17,8 +20,6 @@ import android.widget.TextView;
  */
 public class Cadastro extends Activity {
     
-    TextView limpar;
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro);
@@ -34,12 +35,34 @@ public class Cadastro extends Activity {
 
     public void onClickVolta(View v) {
         Intent i = new Intent(this, MainActivity.class);
-        //i.setClass(this, Cadastro.class);
         startActivity(i);
+        
+        
+
     }
     
     public void onClickLimpa(View v) {
-        limpar.setText("");
+        
+        final EditText etNome       = (EditText) findViewById(R.id.txNome);
+        final EditText etEndereco   = (EditText) findViewById(R.id.txEndereco);
+        final EditText etUf         = (EditText) findViewById(R.id.txUf);
+        final EditText etBairro     = (EditText) findViewById(R.id.txBairro);
+        final EditText etCidade     = (EditText) findViewById(R.id.txCidade);
+        final EditText etUsuario    = (EditText) findViewById(R.id.txUsuario);
+        final EditText etSenha      = (EditText) findViewById(R.id.txSenha);
+        final EditText etEmail      = (EditText) findViewById(R.id.txEmail);
+        
+        etNome.setText("");
+        etEndereco.setText("");
+        etUf.setText("");
+        etBairro.setText("");
+        etCidade.setText("");
+        etUsuario.setText("");
+        etSenha.setText("");
+        etEmail.setText("");
+        
+        
+        
     }
 
 }
