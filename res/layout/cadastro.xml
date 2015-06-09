@@ -90,6 +90,7 @@ android:id="@+id/cadastrar"
 android:layout_width="90px"
 android:layout_height="40px"
 android:text="Cadastrar"
+android:onClick="onClickCadastra"
 android:layout_x="20px"
 android:layout_y="372px"
 >

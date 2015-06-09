@@ -8,11 +8,10 @@ package android.luma.tci;
 import android.app.Activity;
 import android.content.Intent;
 import android.luma.tci.bean.Usuario;
-import android.luma.tci.ws.Entidade;
+import android.luma.tci.dao.UsuarioDAO;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 /**
  *
@@ -20,17 +19,20 @@ import android.widget.TextView;
  */
 public class Cadastro extends Activity {
     
+ private EditText bairro;
+ private EditText endereco;
+ private EditText cidade;
+ private EditText nome;
+ private EditText senha;
+ private EditText username;
+ private EditText uf;
+// private EditText complemento;
+ private EditText email;
+ 
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro);
-        //this.atualiza();
-        /* ListView lv = getListView();
-         lv.setTextFilterEnabled(true);
-         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-         Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
-         }
-         }); */
     }
 
     public void onClickVolta(View v) {
@@ -39,6 +41,21 @@ public class Cadastro extends Activity {
         
         
 
+    }
+    
+    public void onClickCadastra(View v) {
+        UsuarioDAO userDAO = new UsuarioDAO(this);
+        Usuario user = new Usuario();
+        user.setBairro(bairro.getText().toString());
+        user.setCidade(cidade.getText().toString());
+        user.setEmail(email.getText().toString());
+        user.setEndereco(endereco.getText().toString());
+        user.setNome(nome.getText().toString());
+        user.setSenha(senha.getText().toString());
+        user.setUf(uf.getText().toString());
+        user.setUsername(username.getText().toString());
+        userDAO.create(user);
+        finish();
     }
     
     public void onClickLimpa(View v) {

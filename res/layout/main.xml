@@ -1,82 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AbsoluteLayout
-android:id="@+id/widget0"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
-xmlns:android="http://schemas.android.com/apk/res/android"
->
-<AutoCompleteTextView
-android:id="@+id/senha"
-android:layout_width="145px"
-android:layout_height="wrap_content"
-android:textSize="18sp"
-android:layout_x="90px"
-android:layout_y="192px"
->
-</AutoCompleteTextView>
-<AutoCompleteTextView
-android:id="@+id/login"
-android:layout_width="143px"
-android:layout_height="50px"
-android:textSize="18sp"
-android:layout_x="90px"
-android:layout_y="102px"
->
-</AutoCompleteTextView>
-<Button
-android:layout_width="84px"
-android:layout_height="wrap_content"
-android:text="Entrar"
-android:layout_x="120px"
-android:layout_y="272px"
-android:id="@+id/login"
-android:onClick="onClickLogar"
->
-</Button>
-<TextView
-android:id="@+id/widget30"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Login"
-android:layout_x="90px"
-android:layout_y="72px"
->
-</TextView>
-<TextView
-android:id="@+id/widget31"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Senha"
-android:layout_x="90px"
-android:layout_y="162px"
->
-</TextView>
-<TextView
-android:id="@+id/widget33"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Não possui cadastro?"
-android:layout_x="30px"
-android:layout_y="372px"
->
-</TextView>
-<Button
-android:layout_width="122px"
-android:layout_height="33px"
-android:text="Criar Cadastro"
-android:layout_x="180px"
-android:layout_y="372px"
-android:id="@+id/cadastro"
-android:onClick="onClickCadastrar"
->
-</Button>
-<TextView
-android:layout_width="252px"
-android:layout_height="35px"
-android:text="Busca Certa Combustíveis"
-android:textSize="20sp"
-android:layout_x="40px"
-android:layout_y="22px"
->
-</TextView>
-</AbsoluteLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="android.luma.tci.MainActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/widget30"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Busca Certa Combustíveis"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="25dp"
+            android:padding="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="#FFFFFF"
+            android:text="Login"
+            android:textStyle="bold"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/login"
+            android:background="#ffffff"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:text="Senha"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/senha"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#ffffff"
+            android:textSize="18dp" />
+
+        <CheckBox
+            android:id="@+id/login_ckbConectado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dip"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:text="Manter conectado?" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:text="Entrar"
+            android:layout_gravity="center"
+            android:onClick="onClickLogar"
+            />
+
+        <TextView
+            android:id="@+id/widget33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:text="Não possui cadastro?"
+            />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:text="Criar Cadastro"
+            android:layout_gravity="center"
+            android:onClick="onClickCadastrar"
+            >
+        </Button>
+
+    </LinearLayout>
+</ScrollView>

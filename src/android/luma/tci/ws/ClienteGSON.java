@@ -24,15 +24,14 @@ import org.apache.http.impl.client.DefaultHttpClient;
  */
 public class ClienteGSON {
 
-   private static final String BASE_URI = "http://10.20.5.14:8080/TCI-war/meuservico/servico";
-   private static final String BASE_URLPOSTO = "http://10.20.5.14:8080/TCI-war/meuservico/servicoposto";
+    private static final String BASE_URI = "http://192.168.0.8:8080/TCI-war/meuservico/servico";
+    private static final String BASE_URLPOSTO = "http://192.168.0.8:8080/TCI-war/meuservico/servicoposto/Posto/listatodos";
 
-     
-    public Entidade testeGet(String param1,String param2) throws Exception {
+    public Entidade testeGet(String param1, String param2) throws Exception {
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpGet request = new HttpGet();
-            request.setURI(new URI(String.format("%s/%s/%s",BASE_URI,param1.trim(),param2.trim())));
+            request.setURI(new URI(String.format("%s/%s/%s", BASE_URI, param1.trim(), param2.trim())));
             HttpResponse response = httpclient.execute(request);
             InputStream content = response.getEntity().getContent();
             Reader reader = new InputStreamReader(content);
@@ -43,21 +42,21 @@ public class ClienteGSON {
             throw ex;
         }
     }
-    public Post testeGet(String param1) throws Exception {
+
+    public List< Post> getPostos() throws Exception {
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpGet request = new HttpGet();
-            request.setURI(new URI(String.format("%s/%s/%s",BASE_URLPOSTO,param1.trim())));
+            request.setURI(new URI(String.format("%s", BASE_URLPOSTO)));
             HttpResponse response = httpclient.execute(request);
             InputStream content = response.getEntity().getContent();
             Reader reader = new InputStreamReader(content);
             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").create();
-            gson.fromJson(reader,new TypeToken<List<Post>>(){}.getType());
-            return gson.fromJson(reader, Post.class);
+            return gson.fromJson(reader, new TypeToken<List<Post>>() {
+            }.getType());
         } catch (Exception ex) {
             ex.printStackTrace();
             throw ex;
         }
     }
 }
-

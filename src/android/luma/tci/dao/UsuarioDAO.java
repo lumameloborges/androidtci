@@ -5,13 +5,11 @@
  */
 package android.luma.tci.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.luma.tci.bean.Usuario;
 import android.luma.tci.util.ConexaoBancoSQLite;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -25,7 +23,22 @@ public class UsuarioDAO {
         this.context = context;
     }
 
-//   public List<Usuario> ListaTodos(){
-//       
-//   } 
+ public void create(Usuario user) {
+        ConexaoBancoSQLite bd = new ConexaoBancoSQLite(this.context);
+        SQLiteDatabase conn = bd.getWritableDatabase();
+        ContentValues usuarios = new ContentValues(1);
+        usuarios.put("nome", user.getNome());
+        usuarios.put("bairro", user.getBairro());
+        usuarios.put("cidade", user.getCidade());
+        usuarios.put("nome", user.getNome());
+        usuarios.put("endereco", user.getEndereco());
+        usuarios.put("email", user.getEmail());
+        usuarios.put("uf", user.getUf());
+        usuarios.put("username", user.getUsername());
+        usuarios.put("senha", user.getSenha());
+        usuarios.put("complemento", user.getComplemento());
+        usuarios.put("cod", user.getCod());
+        conn.insert("usuario", null, usuarios);
+        conn.close();
+    }
 }
