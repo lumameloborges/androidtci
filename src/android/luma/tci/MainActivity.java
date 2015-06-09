@@ -50,6 +50,8 @@ public class MainActivity extends Activity {
         EditText etLogin = (EditText) findViewById(R.id.login);
         EditText etSenha = (EditText) findViewById(R.id.senha);
 
+       // String ChamadaWS = "http://localhost:8080/TCI-war/meuservico/testeservico/luma/101010";
+        
         ClienteGSON cliente = new ClienteGSON();
 
         try {
